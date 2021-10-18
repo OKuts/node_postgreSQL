@@ -1,11 +1,11 @@
 const express = require('express');
+const userRouter = require('./routes/user.router');
 const PORT = process.env.PORT || 8080;
 
 const app = express();
+app.use(express.json());
 
-app.get('/', ((req, res) => {
-  res.send('<h1>Hello</h1>')
-}));
+app.use('/api', userRouter);
 
 
 const start = async () => {
